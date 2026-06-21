@@ -43,10 +43,10 @@ spec:
             - name: MYSQL_DATABASE
               value: example
             - name: MYSQL_ROOT_PASSWORD_FILE
-              value: /run/secrets/db-password
+              value: /etc/db-secret/db-password
           volumeMounts:
             - name: db-password
-              mountPath: /run/secrets
+              mountPath: /etc/db-secret
               readOnly: true
             - name: db-data
               mountPath: /var/lib/mysql
@@ -107,14 +107,14 @@ spec:
             - name: DATABASE_USER
               value: root
             - name: DATABASE_PASSWORD
-              value: /run/secrets/db-password
+              value: /etc/db-secret/db-password
             - name: DATABASE_HOST
               value: db
             - name: NODE_ENV
               value: production
           volumeMounts:
             - name: db-password
-              mountPath: /run/secrets
+              mountPath: /etc/db-secret
               readOnly: true
           readinessProbe:
             httpGet:
