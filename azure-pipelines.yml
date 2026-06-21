@@ -9,8 +9,6 @@ variables:
   location: "southeastasia"
   resourceGroup: "rg-mini3tier-simple"
 
-  # Đổi acrName thành tên unique của bạn.
-  # Chỉ dùng chữ thường và số, ví dụ: acrmini3tiervan001
   acrName: "acrmini3tiervan001"
 
   aksName: "aks-mini3tier-simple"
@@ -93,13 +91,13 @@ stages:
                 docker build \
                   --target development \
                   -t "$ACR_LOGIN_SERVER/$(backendImageName):$(imageTag)" \
-                  -f react-express-mysql/backend/Dockerfile \
+                  -f backend/Dockerfile \
                   react-express-mysql/backend
 
                 docker build \
                   --target development \
                   -t "$ACR_LOGIN_SERVER/$(frontendImageName):$(imageTag)" \
-                  -f react-express-mysql/frontend/Dockerfile \
+                  -f frontend/Dockerfile \
                   react-express-mysql/frontend
 
                 docker push "$ACR_LOGIN_SERVER/$(backendImageName):$(imageTag)"
