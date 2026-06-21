@@ -92,13 +92,13 @@ stages:
                   --target development \
                   -t "$ACR_LOGIN_SERVER/$(backendImageName):$(imageTag)" \
                   -f backend/Dockerfile \
-                  react-express-mysql/backend
+                  backend
 
                 docker build \
                   --target development \
                   -t "$ACR_LOGIN_SERVER/$(frontendImageName):$(imageTag)" \
                   -f frontend/Dockerfile \
-                  react-express-mysql/frontend
+                  frontend
 
                 docker push "$ACR_LOGIN_SERVER/$(backendImageName):$(imageTag)"
                 docker push "$ACR_LOGIN_SERVER/$(frontendImageName):$(imageTag)"
