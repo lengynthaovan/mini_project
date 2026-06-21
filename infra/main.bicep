@@ -4,7 +4,7 @@ param acrName string
 param aksName string
 
 param nodeCount int = 1
-param nodeVmSize string = 'Standard_B2s'
+param nodeVmSize string = 'Standard_B2s_v2'
 
 resource acr 'Microsoft.ContainerRegistry/registries@2023-07-01' = {
   name: acrName
